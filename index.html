@@ -11,7 +11,7 @@
       height: 100%;
       justify-content: center;
       margin: 0;
-	  background-color: #303436;
+	  background-color: #393939;
     }
 	
 	body {
@@ -21,7 +21,7 @@
     }
 
     h1 {
-      font-size: 2em;
+      font-size: 1.25em;
       grid-column: 1 / -1;
       margin: 0;
       text-align: center;
@@ -62,22 +62,29 @@
     }
 	
 	input {
-    height: inherit;
-    width: 95%;
-    background: #3a3f42;
-    color: #F5F5F5;
-    font: 22px "Courier New", Courier, monospace;
-    font-weight: bold;
-    line-height: 2em;
-    box-shadow: none;
-    border: none;
-    text-align: center;
-    border-radius: 5px;
-    outline: none;
-    padding: 5px 0px;
-    font-size: 18;
-    grid-column: 1 / -1;
-    margin: 0;
+      height: inherit;
+      width: 95%;
+      background: #393939;
+      color: transparent;
+  	  text-shadow: 0 0 0 #F5F5F5;
+      font: 22px "Arial", Arial, monospace;
+      font-weight: bold;
+      line-height: 2em;
+      box-shadow: none;
+      border: none;
+	  border-bottom: 2px solid #444444;
+      text-align: center;
+      border-radius: 0px;
+      outline: none;
+      padding: 5px 0px;
+      font-size: 18;
+      grid-column: 1 / -1;
+      margin: 0;
+	}
+	
+	::placeholder {
+	  color: transparent;
+	  text-shadow: 0 0 0 #666666;
 	}
 	
   </style>
@@ -85,7 +92,7 @@
 
 <body>
 	<nav>	
-		
+		<h1>Serie TV</h1>
 		
 		<ul>			
 			<li>Dplay</li>
@@ -99,8 +106,6 @@
 		<div>
 			<hr />
 		</div>
-		
-		<!--Togli il commento per il divisore verticale <hr /> -->
 		
 		<ul>			
 			<li>RaiPlay</li>
