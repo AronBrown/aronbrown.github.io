@@ -1,41 +1,23 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Serie TV</title>
-  <link rel="shortcut icon" type="image/x-icon" href="home.png" />
+  <title>Ricerca</title>
+  <link rel="shortcut icon" type="image/x-icon" href="search.png" />
   <style>
     html {
       align-items: center;
       display: flex;
-	  font: 25px "Courier New", Courier, monospace;
+      font: 25px "Century Gothic", Century Gothic, monospace;
       height: 100%;
       justify-content: center;
       margin: 0;
-	  background-color: #393939;
+      background-color: #2E3440;
     }
 	
 	body {
       display: flex;
       margin: 1em;
       padding: 1em;
-    }
-
-    h1 {
-      font-size: 1.25em;
-      grid-column: 1 / -1;
-      margin: 0;
-      text-align: center;
-	  color: #F5F5F5;
-    }
-
-    a {
-      color: #F5F5F5;
-      text-decoration: none;
-    }
-	
-	a:focus,
-    a:hover {
-      color: #1d81b2;
     }
 
     nav {
@@ -47,32 +29,19 @@
       padding: 1em 0;
 	  text-align: center;
     }
-
-    ul {
-      list-style-type: none;
-      margin: 0;
-      padding: 0;
-      white-space: nowrap;
-    }
-
-    li:first-child {
-      font-weight: bold;
-      line-height: 2em;
-	  color: #e0e0e0;
-    }
 	
 	input {
       height: inherit;
-      width: 95%;
-      background: #393939;
+      width: 100%;
+      background: #2E3440;
       color: transparent;
   	  text-shadow: 0 0 0 #F5F5F5;
-      font: 22px "Arial", Arial, monospace;
+      font: 25px "Courier New", Courier New, monospace;
       font-weight: bold;
       line-height: 2em;
       box-shadow: none;
       border: none;
-	  border-bottom: 2px solid #444444;
+      border-bottom: 2px solid #4C566A;
       text-align: center;
       border-radius: 0px;
       outline: none;
@@ -84,7 +53,7 @@
 	
 	::placeholder {
 	  color: transparent;
-	  text-shadow: 0 0 0 #666666;
+	  text-shadow: 0 0 0 #4C566A;
 	}
 	
   </style>
@@ -92,29 +61,6 @@
 
 <body>
 	<nav>	
-		<h1>Serie TV</h1>
-		
-		<ul>			
-			<li>Dplay</li>
-			<li><a href="https://it.dplay.com/nove/pizza-hero/">Pizza hero</a></li>
-			<li><a href="https://it.dplay.com/nove/restaurant-swap-cambio-ristorante/">Restaurant swap</a></li>
-			<li><a href="https://it.dplay.com/realtime/cortesie-per-gli-ospiti/">Cortesie per gli ospiti</a></li>
-			<li><a href="https://it.dplay.com/realtime/primo-appuntamento/">Primo appuntamento</a></li>
-			<li><a href="https://it.dplay.com/food-network/food-advisor/">Food advisor</a></li>
-		</ul>
-		
-		<div>
-			<hr />
-		</div>
-		
-		<ul>			
-			<li>RaiPlay</li>
-			<li><a href="https://www.raiplay.it/programmi/donmatteo" >Don Matteo</a></li>
-		</ul>
-		
-		<div>
-		</div>
-
 		<form id="searchContainer" action="https://www.google.it/search" method="get" autocomplete="off">
 			<input type="text" name="q" placeholder="Cerca qualcosa su google">
 		</form>
