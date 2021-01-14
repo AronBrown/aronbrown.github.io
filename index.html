@@ -3,44 +3,83 @@
 	<head>
 		<title>Esempio AJAX</title>
 		<meta charset="utf-8">
-		<link rel="stylesheet" href="stiliBaseDante.css">
+		<meta content="width=device-width, initial-scale=1" name="viewport" />
 		<style type="text/css">
-			.divParente {
+			html{
+				font-family: "Arial";
+			}
+			body{
+				background: rgb(47, 52, 55);
+				color: rgba(255, 255, 255, 0.9);
+			}
+			.divParente{
 				display: grid;
 				place-items: center;
 				flex-wrap: wrap;
 			}
-			.divFiglio {
+
+			.divFiglio{
 				flex: 1 1 300px;
 				padding: 5px;
 				margin: 1px;
-				border: 1px solid red;
-				background: lightpink;
-				font-size: 15;
+				border: 2px white;
+				background: transparent;
+				font-size: 30px;
 				text-align: center;
 				white-space: pre;
 			}
+
+			fieldset{
+				border: 2px solid;
+			}
+
+			button {
+				font-size: 25px;
+				background: transparent;
+				color: rgba(255, 255, 255, 0.9);
+				border: none;
+				transition-duration: 0.4s;
+				border-bottom: solid;
+				border-bottom-color: transparent;
+				outline: 0;
+			}
+
+			button:hover {
+				background: transparent;
+				border-bottom: solid;
+			}
+
 		</style>
 		<script type="text/javascript" src="jquery-3.5.1.js"></script>
-		
 	</head>
+
 	<body>
-		<button>REMIXA</button>
+		<div class="divParente">
+			<table>
+				<td><button id="button1">Canto I</button></td>
+				<td><button id="button2">Canto II</button></td>
+				<td><button>Canto IV</button></td>
+				<td><button>BONUS</button></td>
+			</table>
+		</div>
 		<hr/>
 		<fieldset class="divParente">
-			<div id="zonaDinamica1" class="divFiglio">Qui uscirà la terzina da spiegare!</div>
+			<div id="zonaDinamica1" class="divFiglio">Qui uscirà la tua terzina!</div>
 		</fieldset>
 		<hr/>
 		
-		Resto del documento<br/>
-		<script src="ArrayDante.js" type="text/javascript"></script>
+		<script type="text/javascript" src="DanteC1.js"></script>
+		<script type="text/javascript" src="DanteC2.js"></script>
 		<script>
 			$(document).ready(function(){
-				$("button").click(function(){
+				$("#button1").click(function(){
 					randno = versi[Math.floor(Math.random()*versi.length)];
 					$('#zonaDinamica1').text(randno);
 				});
-
+				$("#button2").click(function(){
+					randno = versicii[Math.floor(Math.random()*versicii.length)];
+					$('#zonaDinamica1').text(randno);
+				});
 			});
 		</script>	
 	</body>
