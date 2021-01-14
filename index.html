@@ -3,8 +3,12 @@
 	<head>
 		<title>Esempio AJAX</title>
 		<meta charset="utf-8">
-		<meta content="width=device-width, initial-scale=1" name="viewport" />
+		<meta content="width=device-width, initial-scale=1" name="viewport">
 		<style type="text/css">
+			@media only screen{
+				font-size:
+			}
+
 			html{
 				font-family: "Arial";
 			}
@@ -12,6 +16,11 @@
 				background: rgb(47, 52, 55);
 				color: rgba(255, 255, 255, 0.9);
 			}
+
+			.godBless{
+				color: rgba(255, 255, 255, 0.5);
+			}
+
 			.divParente{
 				display: grid;
 				place-items: center;
@@ -20,11 +29,11 @@
 
 			.divFiglio{
 				flex: 1 1 300px;
-				padding: 5px;
+				padding: 1px;
 				margin: 1px;
 				border: 2px white;
 				background: transparent;
-				font-size: 30px;
+				font-size: 4vw;
 				text-align: center;
 				white-space: pre;
 			}
@@ -34,7 +43,7 @@
 			}
 
 			button {
-				font-size: 25px;
+				font-size: 100%;
 				background: transparent;
 				color: rgba(255, 255, 255, 0.9);
 				border: none;
@@ -49,38 +58,34 @@
 				border-bottom: solid;
 			}
 
+			hr {
+				border: 1px solid white;
+			}
+
 		</style>
 		<script type="text/javascript" src="jquery-3.5.1.js"></script>
 	</head>
 
 	<body>
 		<div class="divParente">
+			<h2>Terzine dantesche</h2>
+			
 			<table>
 				<td><button id="button1">Canto I</button></td>
 				<td><button id="button2">Canto II</button></td>
-				<td><button>Canto IV</button></td>
-				<td><button>BONUS</button></td>
+				<td><button id="button3">Canto IV</button></td>
+				<td><button id="button4">BONUS</button></td>
 			</table>
 		</div>
 		<hr/>
 		<fieldset class="divParente">
-			<div id="zonaDinamica1" class="divFiglio">Qui uscirà la tua terzina!</div>
+			<div id="zonaDinamicaPre" class="divFiglio godBless">Terzina precedente</div>
+			<div id="zonaDinamicaNow" class="divFiglio">Qui uscirà la tua terzina</div>
+			<div id="zonaDinamicaPost" class="divFiglio godBless">Terzina successiva</div>
 		</fieldset>
-		<hr/>
-		
-		<script type="text/javascript" src="DanteC1.js"></script>
-		<script type="text/javascript" src="DanteC2.js"></script>
-		<script>
-			$(document).ready(function(){
-				$("#button1").click(function(){
-					randno = versi[Math.floor(Math.random()*versi.length)];
-					$('#zonaDinamica1').text(randno);
-				});
-				$("#button2").click(function(){
-					randno = versicii[Math.floor(Math.random()*versicii.length)];
-					$('#zonaDinamica1').text(randno);
-				});
-			});
-		</script>	
+		<script type="text/javascript" src="./DanteC1.js"></script>
+		<script type="text/javascript" src="./DanteC2.js"></script>
+		<script type="text/javascript" src="./DanteC4.js"></script>
+		<script type="text/javascript" src="./Bonus.js"></script>
 	</body>
 </html>

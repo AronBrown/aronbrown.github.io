@@ -44,3 +44,21 @@ var versi = new Array("1 Nel mezzo del cammin di nostra vita \n2 mi ritrovai per
 	"130 E io a lui: \"Poeta, io ti richeggio \n131 per quello Dio che tu non conoscesti, \n132 acciò ch’io fugga questo male e peggio,",
 	"133 che tu mi meni là dov’or dicesti, \n134 sì ch’io veggia la porta di san Pietro \n135 e color cui tu fai cotanto mesti\".",
 	"136 Allor si mosse, e io li tenni dietro.");
+
+$(document).ready(function(){
+	$("#button1").click(function(){
+		numero=Math.floor(Math.random()*versi.length)
+		randnopre = versi[numero-1];
+		if (typeof(randnopre)=="undefined") {
+			randnopre="..."
+		}
+		$('#zonaDinamicaPre').text(randnopre);
+		randno = versi[numero];
+		$('#zonaDinamicaNow').text(randno);
+		randnopost = versi[numero+1];
+		if (typeof(randnopost)=="undefined") {
+			randnopost="..."
+		}
+		$('#zonaDinamicaPost').text(randnopost);
+	});
+});
