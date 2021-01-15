@@ -19,6 +19,11 @@
 
 			.godBless{
 				color: rgba(255, 255, 255, 0.5);
+				transition-duration: 0.4s;
+			}
+
+			.godBless:hover{
+				color: rgba(255, 255, 255, 0.7);
 			}
 
 			.divParente{
@@ -34,6 +39,17 @@
 				border: 2px white;
 				background: transparent;
 				font-size: 4vw;
+				text-align: center;
+				white-space: pre;
+			}
+
+			.divFiglio2{
+				flex: 1 1 300px;
+				padding: 1px;
+				margin: 1px;
+				border: 2px white;
+				background: transparent;
+				font-size: 3.8vw;
 				text-align: center;
 				white-space: pre;
 			}
@@ -78,9 +94,9 @@
 		</div>
 		<hr/>
 		<fieldset class="divParente">
-			<div id="zonaDinamicaPre" class="divFiglio godBless">Terzina precedente</div>
+			<div id="zonaDinamicaPre" class="divFiglio2 godBless">Terzina precedente</div>
 			<div id="zonaDinamicaNow" class="divFiglio">Qui uscirà la tua terzina</div>
-			<div id="zonaDinamicaPost" class="divFiglio godBless">Terzina successiva</div>
+			<div id="zonaDinamicaPost" class="divFiglio2 godBless">Terzina successiva</div>
 		</fieldset>
 		<script type="text/javascript" src="./DanteC1.js"></script>
 		<script type="text/javascript" src="./DanteC2.js"></script>
