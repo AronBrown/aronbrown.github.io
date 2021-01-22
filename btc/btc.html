@@ -30,12 +30,17 @@
 			    text-shadow: 0 0 0 #ffffff;
 			    line-height: 2em;
 			    border: none;
-			    border-bottom: solid 0.5vh #ffffff;
+			    border-bottom: dashed 0.5vh #ffffff;
 			    border-radius: 0px;
 			    outline: none;
 			    padding: 0px;
 			    font-family: "Inconsolata", monospace;
 				font-size: 5vh;
+			}
+
+			::placeholder{
+				color: transparent;
+			    text-shadow: 0 0 0 #ffffff;
 			}
 
 			.centro{
@@ -51,6 +56,33 @@
 				-moz-appearance: textfield;
 			}
 
+			fieldset{
+				border: 2px solid;
+			}
+
+			.menu{
+				position: absolute;
+				align-self: center;
+				bottom: 10px;
+			}
+
+			#menuNascosto {
+				display: none;
+			}
+
+			hr{
+				border-top: 0.5vh solid;
+			}
+
+			.bottoni{
+				background-color: #ff9500;
+			    color: #ffffff;
+			    border: 0.5vh solid;
+   			    font-size: 4vh;
+   			    margin-top: 10px;
+   			    outline: 0;
+			}
+
 		</style>
 		<script type="text/javascript">
 			function inizializzaStorage(){
@@ -60,12 +92,12 @@
 			}
 
 			function resetStorageUtenti(){
-				localStorage.saldoBtcLF="";
-				alert("Reset effettuato");
+				localStorage.saldoBtcLF="0";
+				alert("Saldo a 0!");
 			}
 
 			function stampaStorageSalvato(){
-				s=new String("<fieldset><legend>Stampa storage</legend>"+localStorage.saldoBtcLF+"").replace(/\"/g, "");
+				s=new String("<fieldset><legend>Stampa storage</legend>"+localStorage.saldoBtcLF+"</fieldset>").replace(/\"/g, "");
 				document.getElementById("idStampaStorage").innerHTML=s;
 			}
 
@@ -74,28 +106,33 @@
 				localStorage.saldoBtcLF = JSON.stringify(btc)
 			}
 		</script>
+		<script type="text/javascript" src="jQuery-3.5.1.js"></script>
 	</head>
 	<body onload="inizializzaStorage();">
+
+		<div id="menu" class="centro menu">Menù</div>
+
 		<table>
 				<td><div class="centro">1₿ vale</div></td>
 				<tr></tr>
 				<td><div id="valoreCoin" class="centro">Caricamento...</div></td>
 				<tr></tr>
-				<!--<td class="centro">
-					<input type="button" name="stampaStorage" value="S" onclick="stampaStorageSalvato();">
-					<input type="button" name="resetStorage" value="R" onclick="resetStorageUtenti();">
-				</td>
-				<tr></tr>-->
 				<td><div class="centro">Il tuo portafoglio vale</div></td>
 				<tr></tr>
 				<td><div id="valoreWallet" class="centro"></div></td>
 				<tr></tr>
 				<td class="centro">
-					<div id="vistaStorage" class="centro"></div>
+					<div id="vistaStorage" class="centro">Caricamento...</div>
 				</td>
 				<tr></tr>
-				<td class="centro">
-					<input type="number" id="cmpIn" class="centro numeri" onchange="inserisciSoldi();" placeholder="Inserisci qui il tuo saldo">
+				<td><hr></td>
+				<tr></tr>
+				<td id="menuNascosto" class="centro">
+					<div class="centro">Inserisci qui il tuo saldo</div>
+					<input type="number" id="cmpIn" class="centro numeri" onchange="inserisciSoldi();">
+					<br>
+					<input type="button" class="bottoni" name="stampaStorage" value="Saldo" onclick="stampaStorageSalvato();">
+					<input type="button" class="bottoni" name="resetStorage" value="Reset" onclick="resetStorageUtenti();">
 				</td>
 				<tr></tr>
 				<td class="centro">
@@ -104,6 +141,12 @@
 		</table>
 
 		<script>
+			$(document).ready(function(){
+				$("#menu").click(function() {
+					$("#menuNascosto").toggle();
+				});
+			});
+
 			var xhr = new XMLHttpRequest();
 			xhr.open('GET', 'https://api.coinbase.com/v2/prices/sell?currency=EUR', true);
 			xhr.onload = function () {
