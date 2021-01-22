@@ -31,7 +31,7 @@
 		</table>		
 		<script>
 			var xhr = new XMLHttpRequest();
-			xhr.open('GET', 'https://api.coinbase.com/v2/prices/spot?currency=EUR', true);
+			xhr.open('GET', 'https://api.coinbase.com/v2/prices/sell?currency=EUR', true);
 			xhr.onload = function () {
 				if (xhr.readyState === xhr.DONE) {
 					if (xhr.status === 200) {

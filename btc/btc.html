@@ -3,7 +3,7 @@
 	<head>
 		<title>Bitcoin</title>
 		<meta charset="utf-8">
-		<!--<link rel="icon" href="btcIco.png">-->
+		<link rel="icon" href="btcIco.png">
 		<style type="text/css">
 			html {
 			    align-items: center;
@@ -16,11 +16,41 @@
 			}
 
 			body {
-			    background-color: #393939;
+			    background-color: #ff9500;
 			    color: #ffffff;
 			    display: flex;
 			    flex-direction: column;
+			    padding: 5px;
 			}
+
+			input.numeri {
+				width: 85%;
+			   	background: transparent;
+				color: transparent;
+			    text-shadow: 0 0 0 #ffffff;
+			    line-height: 2em;
+			    border: none;
+			    border-bottom: solid 0.5vh #ffffff;
+			    border-radius: 0px;
+			    outline: none;
+			    padding: 0px;
+			    font-family: "Inconsolata", monospace;
+				font-size: 5vh;
+			}
+
+			.centro{
+				text-align: center;
+			}
+
+			input::-webkit-outer-spin-button,
+			input::-webkit-inner-spin-button {
+				-webkit-appearance: none;
+				margin: 0;
+			}
+			input[type=number] {
+				-moz-appearance: textfield;
+			}
+
 		</style>
 		<script type="text/javascript">
 			function inizializzaStorage(){
@@ -35,46 +65,47 @@
 			}
 
 			function stampaStorageSalvato(){
-				//alert("Nome: "+localStorage.saldoBtcLF.nome);
-				s=new String("<fieldset><legend>Stampa storage</legend>"+localStorage.saldoBtcLF+"</fieldset>");
-				document.getElementById("vistaStorage").innerHTML=s;
+				s=new String("<fieldset><legend>Stampa storage</legend>"+localStorage.saldoBtcLF+"").replace(/\"/g, "");
+				document.getElementById("idStampaStorage").innerHTML=s;
 			}
 
 			function inserisciSoldi(){
-				var btc = document.getElementById("campoInput").value;
+				var btc = document.getElementById("cmpIn").value;
 				localStorage.saldoBtcLF = JSON.stringify(btc)
 			}
 		</script>
 	</head>
 	<body onload="inizializzaStorage();">
 		<table>
-				<td><div style="text-align: center;">1₿ vale</div></td>
+				<td><div class="centro">1₿ vale</div></td>
 				<tr></tr>
-				<td><div id="idProva" style="text-align: center;">Caricamento...</div></td>
-
-				<td>
-				<input type="button" name="stampaStorage" value="Stampa storage"
-						onclick="stampaStorageSalvato();">
-			</td>
-			<td>
-				<input type="button" name="resetStorage" value="Reset storage"
-						onclick="resetStorageUtenti();">
-			</td>
-			<input type="number" id="campoInput" 
-			onchange="inserisciSoldi();">
+				<td><div id="valoreCoin" class="centro">Caricamento...</div></td>
+				<tr></tr>
+				<!--<td class="centro">
+					<input type="button" name="stampaStorage" value="S" onclick="stampaStorageSalvato();">
+					<input type="button" name="resetStorage" value="R" onclick="resetStorageUtenti();">
+				</td>
+				<tr></tr>-->
+				<td><div class="centro">Il tuo portafoglio vale</div></td>
+				<tr></tr>
+				<td><div id="valoreWallet" class="centro"></div></td>
+				<tr></tr>
+				<td class="centro">
+					<div id="vistaStorage" class="centro"></div>
+				</td>
+				<tr></tr>
+				<td class="centro">
+					<input type="number" id="cmpIn" class="centro numeri" onchange="inserisciSoldi();" placeholder="Inserisci qui il tuo saldo">
+				</td>
+				<tr></tr>
+				<td class="centro">
+					<div id="idStampaStorage" class="centro"></div>
+				</td>
 		</table>
-
-		<div id="vistaStorage">
-			<!--
-			<fieldset>
-				<legend>Stampa storage</legend>
-			</fieldset>
-			-->
-		</div>
 
 		<script>
 			var xhr = new XMLHttpRequest();
-			xhr.open('GET', 'https://api.coinbase.com/v2/prices/spot?currency=EUR', true);
+			xhr.open('GET', 'https://api.coinbase.com/v2/prices/sell?currency=EUR', true);
 			xhr.onload = function () {
 				if (xhr.readyState === xhr.DONE) {
 					if (xhr.status === 200) {
@@ -82,12 +113,28 @@
 						console.log("Dati richiesti: "+datiResponse);
 						var datiResponseJSON = JSON.parse(datiResponse);
 						var drj = datiResponseJSON["data"]["amount"]
-						document.getElementById("idProva").innerHTML = drj+"€";
+						document.getElementById("valoreCoin").innerHTML = drj+"€";
 						console.log("drj ora: "+drj);
+
+						s1=new Number(JSON.parse(localStorage.saldoBtcLF));
+						s2=new Number(drj);
+
+						var s3=Math.round(((s1*s2) + Number.EPSILON) * 100) / 100;
+
+						s=new String(s3+"€").replace(/\"/g, "");
+						document.getElementById("vistaStorage").innerHTML=s;
 					}
 				}
 			};
 			xhr.send(null);
+
+			var inputInvio = document.getElementById("cmpIn");
+			inputInvio.addEventListener("keyup", function(event) {
+				if (event.keyCode === 13) {
+					event.preventDefault();
+					stampaStorageSalvato();
+				}
+			});
 		</script>
 	</body>
 </html>
