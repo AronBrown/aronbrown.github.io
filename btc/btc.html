@@ -2,7 +2,8 @@
 <html>
 	<head>
 		<title>Bitcoin</title>
-		<link rel="icon" href="btcIco.png">
+		<meta charset="utf-8">
+		<!--<link rel="icon" href="btcIco.png">-->
 		<style type="text/css">
 			html {
 			    align-items: center;
@@ -15,19 +16,62 @@
 			}
 
 			body {
-			    background-color: transparent;
+			    background-color: #393939;
 			    color: #ffffff;
 			    display: flex;
 			    flex-direction: column;
 			}
 		</style>
+		<script type="text/javascript">
+			function inizializzaStorage(){
+				if (typeof(localStorage.saldoBtcLF)=="undefined") {
+					localStorage.saldoBtcLF="";
+				}
+			}
+
+			function resetStorageUtenti(){
+				localStorage.saldoBtcLF="";
+				alert("Reset effettuato");
+			}
+
+			function stampaStorageSalvato(){
+				//alert("Nome: "+localStorage.saldoBtcLF.nome);
+				s=new String("<fieldset><legend>Stampa storage</legend>"+localStorage.saldoBtcLF+"</fieldset>");
+				document.getElementById("vistaStorage").innerHTML=s;
+			}
+
+			function inserisciSoldi(){
+				var btc = document.getElementById("campoInput").value;
+				localStorage.saldoBtcLF = JSON.stringify(btc)
+			}
+		</script>
 	</head>
-	<body>
+	<body onload="inizializzaStorage();">
 		<table>
 				<td><div style="text-align: center;">1₿ vale</div></td>
 				<tr></tr>
 				<td><div id="idProva" style="text-align: center;">Caricamento...</div></td>
-		</table>		
+
+				<td>
+				<input type="button" name="stampaStorage" value="Stampa storage"
+						onclick="stampaStorageSalvato();">
+			</td>
+			<td>
+				<input type="button" name="resetStorage" value="Reset storage"
+						onclick="resetStorageUtenti();">
+			</td>
+			<input type="number" id="campoInput" 
+			onchange="inserisciSoldi();">
+		</table>
+
+		<div id="vistaStorage">
+			<!--
+			<fieldset>
+				<legend>Stampa storage</legend>
+			</fieldset>
+			-->
+		</div>
+
 		<script>
 			var xhr = new XMLHttpRequest();
 			xhr.open('GET', 'https://api.coinbase.com/v2/prices/spot?currency=EUR', true);
@@ -39,9 +83,7 @@
 						var datiResponseJSON = JSON.parse(datiResponse);
 						var drj = datiResponseJSON["data"]["amount"]
 						document.getElementById("idProva").innerHTML = drj+"€";
-						//setTimeout(() => {
-						//	document.getElementById("idProva").innerHTML = drj+" €";
-						//}, 1500);
+						console.log("drj ora: "+drj);
 					}
 				}
 			};
