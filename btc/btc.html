@@ -20,7 +20,8 @@
 			    color: #ffffff;
 			    display: flex;
 			    flex-direction: column;
-			    padding: 5px;
+			    padding-right: 5px;
+			    padding-left: 5px;
 			}
 
 			input.numeri {
@@ -57,13 +58,13 @@
 			}
 
 			fieldset{
-				border: 2px solid;
+				border: 4px solid;
 			}
 
 			.menu{
 				position: absolute;
-				align-self: center;
-				bottom: 10px;
+				top: 0;
+				right: 15px;
 			}
 
 			#menuNascosto {
@@ -81,13 +82,20 @@
    			    font-size: 4vh;
    			    margin-top: 10px;
    			    outline: 0;
+   			    transition-duration: 0.4s;
 			}
 
+			.bottoni:hover {
+				background: #ffffff;
+				color: #ff9500;
+				border: 0.5vh solid;
+				border-color: #ffffff;
+			}
 		</style>
 		<script type="text/javascript">
 			function inizializzaStorage(){
 				if (typeof(localStorage.saldoBtcLF)=="undefined") {
-					localStorage.saldoBtcLF="0";
+					localStorage.saldoBtcLF="";
 				}
 			}
 
@@ -97,7 +105,7 @@
 			}
 
 			function stampaStorageSalvato(){
-				s=new String("<fieldset><legend>Stampa storage</legend>"+localStorage.saldoBtcLF+"</fieldset>").replace(/\"/g, "");
+				s=new String("<fieldset><legend>Saldo BTC</legend>"+localStorage.saldoBtcLF+"</fieldset>").replace(/\"/g, "");
 				document.getElementById("idStampaStorage").innerHTML=s;
 			}
 
@@ -106,11 +114,11 @@
 				localStorage.saldoBtcLF = JSON.stringify(btc)
 			}
 		</script>
-		<script type="text/javascript" src="jquery-3.5.1.js"></script>
+		<script type="text/javascript" src="jQuery-3.5.1.js"></script>
 	</head>
 	<body onload="inizializzaStorage();">
 
-		<div id="menu" class="centro menu">Menù</div>
+		<div id="menu" class="centro menu">&#9776;</div>
 
 		<table>
 				<td><div class="centro">1₿ vale</div></td>
@@ -128,9 +136,7 @@
 				<td><hr></td>
 				<tr></tr>
 				<td id="menuNascosto" class="centro">
-					<div class="centro">Inserisci qui il tuo saldo</div>
 					<input type="number" id="cmpIn" class="centro numeri" onchange="inserisciSoldi();">
-					<br>
 					<input type="button" class="bottoni" name="stampaStorage" value="Saldo" onclick="stampaStorageSalvato();">
 					<input type="button" class="bottoni" name="resetStorage" value="Reset" onclick="resetStorageUtenti();">
 				</td>
