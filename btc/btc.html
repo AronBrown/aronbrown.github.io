@@ -75,6 +75,7 @@
 			}
 
 			hr{
+				border: none;
 				border-top: 0.5vh solid;
 			}
 
@@ -184,7 +185,7 @@
 			inputInvio.addEventListener("keyup", function(event) {
 				if (event.keyCode === 13) {
 					event.preventDefault();
-					stampaStorageSalvato();
+					location.reload(true);
 				}
 			});
 		</script>
