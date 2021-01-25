@@ -1,6 +1,4 @@
-var versiBonus = new Array("Però c’è un’altra cosa che voglio dirti\nche credo sia il vero,\ngrande merito di questa fiction:\nè che non ci sono i toscani, capisci?\nPerché con quella c aspirata\ne quel senso dell’umorismo da quattro soldi\ni toscani hanno devastato questo Paese.",
-	"Devi stare muto, basso profilo,\nchiappe strette e sperare in Dio."
-	);
+var versiBonus = new Array("Simpatiche frasi\nin arrivo");
 
 $(document).ready(function(){
 	$("#button4").click(function(){

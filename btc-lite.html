@@ -3,7 +3,7 @@
 	<head>
 		<title>Bitcoin</title>
 		<meta charset="utf-8">
-		<link rel="icon" href="btcIco.png">
+		<link rel="icon" href="./icone/btcIco.png">
 		<style type="text/css">
 			html {
 			    align-items: center;
@@ -40,9 +40,6 @@
 						var datiResponseJSON = JSON.parse(datiResponse);
 						var drj = datiResponseJSON["data"]["amount"]
 						document.getElementById("idProva").innerHTML = drj+"€";
-						//setTimeout(() => {
-						//	document.getElementById("idProva").innerHTML = drj+" €";
-						//}, 1500);
 					}
 				}
 			};

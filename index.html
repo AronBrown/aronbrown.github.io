@@ -1,107 +1,101 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html>
-	<head>
-		<title>Terzinegram</title>
-		<link rel="icon" href="icona.png">
-		<meta charset="utf-8">
-		<meta content="width=device-width, initial-scale=1" name="viewport">
-		<style type="text/css">
-			@media only screen{
-				font-size:
-			}
+    <head>
+        <title>Home</title>
+        <meta content="width=device-width, initial-scale=1" name="viewport">
+        <link rel="icon" href="./icone/home.png">
+        <style>
+            html {
+                align-items: center;
+                background-color: #4C566A;
+                color: #D8DEE9;
+                display: flex;
+                font: 22px/1 "Inconsolata", monospace;
+                height: 100%;
+                justify-content: center;
+            }
 
-			html{
-				font-family: "Arial";
-			}
-			body{
-				background: rgb(47, 52, 55);
-				color: rgba(255, 255, 255, 0.9);
-			}
+            body {
+                background-color: #2E3440;
+                border-radius: 2px;
+                box-shadow: 1px 1px 6px #1d1f21;
+                color: #D8DEE9;
+                display: flex;
+                flex-direction: column;
+                min-height: 30ch;
+                min-width: 50vw;
+                padding: 2em;
+            }
 
-			.godBless{
-				color: rgba(255, 255, 255, 0.5);
-				transition-duration: 0.4s;
-			}
+            a {
+                color: inherit;
+                text-decoration: none;
+                padding: 2px;
+                padding-right: 5px;
+                padding-left: 5px;
+                transition-duration: 0.5s;
+            }
 
-			.godBless:hover{
-				color: rgba(255, 255, 255, 0.7);
-			}
+            a:focus, a:hover {
+                color: #5E81AC;
+            }
 
-			.divParente{
-				display: grid;
-				place-items: center;
-				flex-wrap: wrap;
-			}
+            fieldset {
+                border: 2px solid;
+                text-align: center;
+            }
 
-			.divFiglio{
-				flex: 1 1 300px;
-				padding: 1px;
-				margin: 1px;
-				border: 2px white;
-				background: transparent;
-				font-size: 4vw;
-				text-align: center;
-				white-space: pre;
-			}
+            legend {
+                border-right: 2px solid;
+                border-left: 2px solid;
+                text-align: center;
+            }
 
-			.divFiglio2{
-				flex: 1 1 300px;
-				padding: 1px;
-				margin: 1px;
-				border: 2px white;
-				background: transparent;
-				font-size: 3.8vw;
-				text-align: center;
-				white-space: pre;
-			}
+            ul {
+                list-style-type: none;
+                margin: 0;
+                padding: 0;
+                margin-left:auto;
+                margin-right:auto;
+            }
 
-			fieldset{
-				border: 2px solid;
-			}
+            .centrato {
+                text-align: center;
+            }
 
-			button {
-				font-size: 100%;
-				background: transparent;
-				color: rgba(255, 255, 255, 0.9);
-				border: none;
-				transition-duration: 0.4s;
-				border-bottom: solid;
-				border-bottom-color: transparent;
-				outline: 0;
-			}
+        </style>
+    </head>
+    <body>
+        <h3 class="centrato">Progetti GitHub</h3>
+        <ul>
+            <li>
+                <fieldset>
+                    <legend>
+                        <a href="aronbrown.github.io/terzinerand.html">TerzineRand</a>
+                    </legend>
+                    Strumento per il ripasso della Divina Commedia.
+                </fieldset>
+            </li>
 
-			button:hover {
-				background: transparent;
-				border-bottom: solid;
-			}
+            <li style="margin-top: 15px">
+                <fieldset>
+                    <legend>
+                        <a href="aronbrown.github.io/btc-lite.html">BTC-Tracker LITE</a>
+                    </legend>
+                    Strumento per conoscere l'attuale prezzo dei bitcoin.
+                </fieldset>
+            </li>
 
-			hr {
-				border: 1px solid white;
-			}
-
-		</style>
-		<script type="text/javascript" src="jquery-3.5.1.min.js"></script>
-	</head>
-
-	<body>
-		<div class="divParente">
-			<h2>Terzine dantesche</h2>
-			<table>
-				<td><button id="button1">Canto I</button></td>
-				<td><button id="button2">Canto II</button></td>
-				<td><button id="button3">Canto IV</button></td>
-				<td><button id="button4">BONUS</button></td>
-			</table>
-		</div>
-		<hr/>
-		<fieldset class="divParente">
-			<div id="zonaDinamicaPre" class="divFiglio2 godBless">Terzina precedente</div>
-			<div id="zonaDinamicaNow" class="divFiglio">Qui uscirà la tua terzina</div>
-			<div id="zonaDinamicaPost" class="divFiglio2 godBless">Terzina successiva</div>
-		</fieldset>
-		<script type="text/javascript" src="./DanteC1.js"></script>
-		<script type="text/javascript" src="./DanteC2.js"></script>
-		<script type="text/javascript" src="./DanteC4.js"></script>
-		<script type="text/javascript" src="./Bonus.js"></script>
-	</body>
+            <li style="margin-top: 15px">
+                <fieldset>
+                    <legend>
+                        <a href="https://aronbrown.github.io/btc-pro.html">BTC-Tracker PRO</a>
+                    </legend>
+                    Strumento per conoscere l'attuale prezzo dei bitcoin,
+                    <br>
+                    con funzione di tracker del portafoglio.
+                </fieldset>
+            </li>
+        </ul>
+    </body>
 </html>
