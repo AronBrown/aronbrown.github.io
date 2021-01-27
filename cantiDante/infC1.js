@@ -1,4 +1,4 @@
-var versi = new Array("1 Nel mezzo del cammin di nostra vita \n2 mi ritrovai per una selva oscura, \n3 ché la diritta via era smarrita.",
+var infC1 = new Array("1 Nel mezzo del cammin di nostra vita \n2 mi ritrovai per una selva oscura, \n3 ché la diritta via era smarrita.",
 	"4 Ahi quanto a dir qual era è cosa dura \n5 esta selva selvaggia e aspra e forte \n6 che nel pensier rinova la paura!",
 	"7 Tant’è amara che poco è più morte; \n8 ma per trattar del ben ch’i’ vi trovai, \n9 dirò de l’altre cose ch’i’ v’ ho scorte.",
 	"10 Io non so ben ridir com’i’ v’intrai, \n11 tant’era pien di sonno a quel punto \n12 che la verace via abbandonai.",
@@ -46,16 +46,16 @@ var versi = new Array("1 Nel mezzo del cammin di nostra vita \n2 mi ritrovai per
 	"136 Allor si mosse, e io li tenni dietro.");
 
 $(document).ready(function(){
-	$("#button1").click(function(){
-		numero=Math.floor(Math.random()*versi.length)
-		randnopre = versi[numero-1];
+	$("#buttoninfC1").click(function(){
+		numero=Math.floor(Math.random()*infC1.length)
+		randnopre = infC1[numero-1];
 		if (typeof(randnopre)=="undefined") {
 			randnopre="..."
 		}
 		$('#zonaDinamicaPre').text(randnopre);
-		randno = versi[numero];
+		randno = infC1[numero];
 		$('#zonaDinamicaNow').text(randno);
-		randnopost = versi[numero+1];
+		randnopost = infC1[numero+1];
 		if (typeof(randnopost)=="undefined") {
 			randnopost="..."
 		}

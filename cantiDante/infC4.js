@@ -1,4 +1,4 @@
-var versiciv = new Array("1 Ruppemi l’alto sonno ne la testa \n2 un greve truono, sì ch’io mi riscossi \n3 come persona ch’è per forza desta;",
+var infC4 = new Array("1 Ruppemi l’alto sonno ne la testa \n2 un greve truono, sì ch’io mi riscossi \n3 come persona ch’è per forza desta;",
 "4 e l’occhio riposato intorno mossi, \n5 dritto levato, e fiso riguardai \n6 per conoscer lo loco dov’io fossi.",
 "7 Vero è che ’n su la proda mi trovai \n8 de la valle d’abisso dolorosa \n9 che ’ntrono accoglie d’infiniti guai.",
 "10 Oscura e profonda era e nebulosa \n11 tanto che, per ficcar lo viso a fondo, \n12 io non vi discernea alcuna cosa.",
@@ -51,17 +51,16 @@ var versiciv = new Array("1 Ruppemi l’alto sonno ne la testa \n2 un greve truo
 "151 E vegno in parte ove non è che luca.");
 
 $(document).ready(function(){
-	$("#button3").click(function(){
-		console.log("bso")
-		numero=Math.floor(Math.random()*versiciv.length)
-		randnopre = versiciv[numero-1];
+	$("#buttoninfC4").click(function(){
+		numero=Math.floor(Math.random()*infC4.length)
+		randnopre = infC4[numero-1];
 		if (typeof(randnopre)=="undefined") {
 			randnopre="..."
 		}
 		$('#zonaDinamicaPre').text(randnopre);
-		randno = versiciv[numero];
+		randno = infC4[numero];
 		$('#zonaDinamicaNow').text(randno);
-		randnopost = versiciv[numero+1];
+		randnopost = infC4[numero+1];
 		if (typeof(randnopost)=="undefined") {
 			randnopost="..."
 		}

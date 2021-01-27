@@ -1,4 +1,5 @@
-var versicii = new Array("1 Lo giorno se n’andava, e l’aere bruno \n2 toglieva li animai che sono in terra \n3 da le fatiche loro; e io sol uno",
+var infC2 = new Array(
+	"1 Lo giorno se n’andava, e l’aere bruno \n2 toglieva li animai che sono in terra \n3 da le fatiche loro; e io sol uno",
 	"4 m’apparecchiava a sostener la guerra \n5 sì del cammino e sì de la pietate, \n6 che ritrarrà la mente che non erra.",
 	"7 O muse, o alto ingegno, or m’aiutate; \n8 o mente che scrivesti ciò ch’io vidi, \n9 qui si parrà la tua nobilitate.",
 	"10 Io cominciai: \"Poeta che mi guidi, \n11 guarda la mia virtù s’ell’è possente, \n12 prima ch’a l’alto passo tu mi fidi.",
@@ -45,19 +46,20 @@ var versicii = new Array("1 Lo giorno se n’andava, e l’aere bruno \n2 toglie
 	"133 \"Oh pietosa colei che mi soccorse! \n134 e te cortese ch’ubidisti tosto \n135 a le vere parole che ti porse!",
 	"136 Tu m’ hai con disiderio il cor disposto \n137 sì al venir con le parole tue, \n138 ch’i’ son tornato nel primo proposto.",
 	"139 Or va, ch’un sol volere è d’ambedue: \n140 tu duca, tu segnore e tu maestro\". \n141 Così li dissi; e poi che mosso fue,",
-	"142 intrai per lo cammino alto e silvestro.");
+	"142 intrai per lo cammino alto e silvestro."
+);
 
 $(document).ready(function(){
-	$("#button2").click(function(){
-		numero=Math.floor(Math.random()*versicii.length)
-		randnopre = versicii[numero-1];
+	$("#buttoninfC2").click(function(){
+		numero=Math.floor(Math.random()*infC2.length)
+		randnopre = infC2[numero-1];
 		if (typeof(randnopre)=="undefined") {
 			randnopre="..."
 		}
 		$('#zonaDinamicaPre').text(randnopre);
-		randno = versicii[numero];
+		randno = infC2[numero];
 		$('#zonaDinamicaNow').text(randno);
-		randnopost = versicii[numero+1];
+		randnopost = infC2[numero+1];
 		if (typeof(randnopost)=="undefined") {
 			randnopost="..."
 		}

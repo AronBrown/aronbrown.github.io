@@ -65,6 +65,7 @@
 				border-bottom: solid;
 				border-bottom-color: transparent;
 				outline: 0;
+				text-align: center;
 			}
 
 			button:hover {
@@ -74,6 +75,7 @@
 
 			hr {
 				border: 1px solid white;
+				margin-bottom: 10px;
 			}
 
 		</style>
@@ -83,22 +85,54 @@
 	<body>
 		<div class="divParente">
 			<h2>Terzine dantesche</h2>
-			<table>
-				<td><button id="button1">Canto I</button></td>
-				<td><button id="button2">Canto II</button></td>
-				<td><button id="button3">Canto IV</button></td>
-				<td><button id="button4">BONUS</button></td>
+			<table style="text-align: center;">
+				<td><button id="buttoninfC1">Inferno I</button></td>
+				<td><button id="buttoninfC2">Inferno II</button></td>
+				<td><button id="buttoninfC4">Inferno IV</button></td>
+				<tr></tr>
+				<td><button id="buttoninfC5">Inferno V</button></td>
+				<td><button id="buttoninfC10">Inferno X</button></td>
+				<td><button id="buttoninfC15">Inferno XV</button></td>
+				<tr></tr>
+				<td><button id="buttoninfC28">Inferno XXVIII</button></td>
+				<td><button id="buttonpurgC1">Purgatorio I</button></td>
+				<td><button id="buttonpurgC2">Purgatorio II</button></td>
+				<tr></tr>
+				<td><button id="buttonpurgC6">Purgatorio VI</button></td>
+				<td><button id="buttonpurgC10">Purgatorio X</button></td>
+				<td><button id="buttonpurgC11">Purgatorio XI</button></td>
+				<tr></tr>
+				<td><button id="buttonpurgC24">Purgatorio XXIV</button></td>
+				<td><button id="buttonpurgC26">Purgatorio XXVI</button></td>
+				<td><button id="button4">Crediti</button></td>
 			</table>
+
 		</div>
+
 		<hr/>
+
 		<fieldset class="divParente">
 			<div id="zonaDinamicaPre" class="divFiglio2 terzinePS">Terzina precedente</div>
 			<div id="zonaDinamicaNow" class="divFiglio">Qui uscirà la tua terzina</div>
 			<div id="zonaDinamicaPost" class="divFiglio2 terzinePS">Terzina successiva</div>
 		</fieldset>
-		<script type="text/javascript" src="./cantiDante/DanteC1.js"></script>
-		<script type="text/javascript" src="./cantiDante/DanteC2.js"></script>
-		<script type="text/javascript" src="./cantiDante/DanteC4.js"></script>
+
+		<script type="text/javascript" src="./cantiDante/infC1.js"></script>
+		<script type="text/javascript" src="./cantiDante/infC2.js"></script>
+		<script type="text/javascript" src="./cantiDante/infC4.js"></script>
+		<script type="text/javascript" src="./cantiDante/infC5.js"></script>
+		<script type="text/javascript" src="./cantiDante/infC10.js"></script>
+		<script type="text/javascript" src="./cantiDante/infC15.js"></script>
+		<script type="text/javascript" src="./cantiDante/infC28.js"></script>
+		
+		<script type="text/javascript" src="./cantiDante/purgC1.js"></script>
+		<script type="text/javascript" src="./cantiDante/purgC2.js"></script>
+		<script type="text/javascript" src="./cantiDante/purgC6.js"></script>
+		<script type="text/javascript" src="./cantiDante/purgC10.js"></script>
+		<script type="text/javascript" src="./cantiDante/purgC11.js"></script>
+		<script type="text/javascript" src="./cantiDante/purgC24.js"></script>
+		<script type="text/javascript" src="./cantiDante/purgC26.js"></script>
 		<script type="text/javascript" src="./cantiDante/Bonus.js"></script>
+
 	</body>
 </html>

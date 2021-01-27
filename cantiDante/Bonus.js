@@ -1,4 +1,4 @@
-var versiBonus = new Array("Simpatiche frasi\nin arrivo");
+var versiBonus = new Array("Sito web\na cura di\nL.M.");
 
 $(document).ready(function(){
 	$("#button4").click(function(){
