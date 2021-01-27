@@ -6,7 +6,6 @@
 		<meta charset="utf-8">
 		<meta content="width=device-width, initial-scale=1" name="viewport">
 		<style type="text/css">
-
 			html {
 				font-family: "Arial";
 			}
@@ -37,7 +36,7 @@
 				margin: 1px;
 				border: 2px white;
 				background: transparent;
-				font-size: 3.5vw;
+				font-size: 3.9vw;
 				text-align: center;
 				white-space: pre;
 			}
@@ -48,7 +47,7 @@
 				margin: 1px;
 				border: 2px white;
 				background: transparent;
-				font-size: 3.2vw;
+				font-size: 3.8vw;
 				text-align: center;
 				white-space: pre;
 			}
@@ -61,22 +60,35 @@
 				font-size: 100%;
 				background: transparent;
 				color: rgba(255, 255, 255, 0.9);
-				border: none;
+				border: solid;
 				transition-duration: 0.4s;
-				border-bottom: solid;
-				border-bottom-color: transparent;
 				outline: 0;
 				text-align: center;
+				width: 150px;
 			}
 
 			button:hover {
-				background: transparent;
-				border-bottom: solid;
+				color: rgb(47, 52, 55);
+				background: rgba(255, 255, 255, 0.9);
+				border: solid;
+				border-color: rgba(255, 255, 255, 0.9);
 			}
 
 			hr {
 				border: 1px solid white;
 				margin-bottom: 10px;
+			}
+
+			.tasti{
+				display: grid;
+				place-items: center;
+				position: absolute;
+				margin-left: auto;
+				margin-right: auto;
+				left: 0;
+				right: 0;
+				text-align: center;
+				bottom: 20px;
 			}
 
 		</style>
@@ -86,23 +98,6 @@
 	<body>
 		<div class="divParente">
 			<h1>Terzine dantesche</h1>
-			<table style="text-align: center;">
-				<td><button id="buttoninfC1">Inferno I</button></td>
-				<td><button id="buttoninfC2">Inferno II</button></td>
-				<td><button id="buttoninfC4">Inferno IV</button></td>
-				<td><button id="buttoninfC5">Inferno V</button></td>
-				<td><button id="buttoninfC10">Inferno X</button></td>
-				<td><button id="buttoninfC15">Inferno XV</button></td>
-				<td><button id="buttoninfC28">Inferno XXVIII</button></td>
-				<tr></tr>
-				<td><button id="buttonpurgC1">Purgatorio I</button></td>
-				<td><button id="buttonpurgC2">Purgatorio II</button></td>
-				<td><button id="buttonpurgC6">Purgatorio VI</button></td>
-				<td><button id="buttonpurgC10">Purgatorio X</button></td>
-				<td><button id="buttonpurgC11">Purgatorio XI</button></td>
-				<td><button id="buttonpurgC24">Purgatorio XXIV</button></td>
-				<td><button id="buttonpurgC26">Purgatorio XXVI</button></td>
-			</table>
 		</div>
 
 		<hr/>
@@ -112,6 +107,31 @@
 			<div id="zonaDinamicaNow" class="divFiglio">Qui uscirà la tua terzina</div>
 			<div id="zonaDinamicaPost" class="divFiglio2 terzinePS">Terzina successiva</div>
 		</fieldset>
+
+		<div class="tasti">
+			<table style="text-align: center;">
+				<td><button id="buttoninfC1">Inferno I</button></td>
+				<td><button id="buttoninfC2">Inferno II</button></td>
+				<tr></tr>
+				<td><button id="buttoninfC4">Inferno IV</button></td>
+				<td><button id="buttoninfC5">Inferno V</button></td>
+				<tr></tr>
+				<td><button id="buttoninfC10">Inferno X</button></td>
+				<td><button id="buttoninfC15">Inferno XV</button></td>
+				<tr></tr>
+				<td><button id="buttoninfC28">Inferno XXVIII</button></td>
+				<td><button id="buttonpurgC1">Purgatorio I</button></td>
+				<tr></tr>
+				<td><button id="buttonpurgC2">Purgatorio II</button></td>
+				<td><button id="buttonpurgC6">Purgatorio VI</button></td>
+				<tr></tr>
+				<td><button id="buttonpurgC10">Purgatorio X</button></td>
+				<td><button id="buttonpurgC11">Purgatorio XI</button></td>
+				<tr></tr>
+				<td><button id="buttonpurgC24">Purgatorio XXIV</button></td>
+				<td><button id="buttonpurgC26">Purgatorio XXVI</button></td>
+			</table>
+		</div>
 
 		<script type="text/javascript" src="./cantiDante/infC1.js"></script>
 		<script type="text/javascript" src="./cantiDante/infC2.js"></script>
