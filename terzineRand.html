@@ -1,0 +1,136 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>TerzineRand</title>
+		<link rel="icon" href="./icone/dntIco.png">
+		<meta charset="utf-8">
+		<meta content="width=device-width, initial-scale=1" name="viewport">
+		<style type="text/css">
+			html {
+				font-family: "Arial";
+			}
+
+			body {
+				background: rgb(47, 52, 55);
+				color: rgba(255, 255, 255, 0.9);
+			}
+
+			.terzinePS {
+				color: rgba(255, 255, 255, 0.5);
+				transition-duration: 0.4s;
+			}
+
+			.terzinePS:hover {
+				color: rgba(255, 255, 255, 0.9);
+			}
+
+			.divParente {
+				display: grid;
+				place-items: center;
+				flex-wrap: wrap;
+			}
+
+			.divFiglio {
+				flex: 1 1 300px;
+				padding: 1px;
+				margin: 1px;
+				border: 2px white;
+				background: transparent;
+				font-size: 3.5vw;
+				text-align: center;
+				white-space: pre;
+			}
+
+			.divFiglio2 {
+				flex: 1 1 300px;
+				padding: 1px;
+				margin: 1px;
+				border: 2px white;
+				background: transparent;
+				font-size: 3.2vw;
+				text-align: center;
+				white-space: pre;
+			}
+
+			fieldset {
+				border: 2px solid;
+			}
+
+			button {
+				font-size: 100%;
+				background: transparent;
+				color: rgba(255, 255, 255, 0.9);
+				border: none;
+				transition-duration: 0.4s;
+				border-bottom: solid;
+				border-bottom-color: transparent;
+				outline: 0;
+				text-align: center;
+			}
+
+			button:hover {
+				background: transparent;
+				border-bottom: solid;
+			}
+
+			hr {
+				border: 1px solid white;
+				margin-bottom: 10px;
+			}
+
+		</style>
+		<script type="text/javascript" src="./librerie/jquery-3.5.1.min.js"></script>
+	</head>
+
+	<body>
+		<div class="divParente">
+			<h1>Terzine dantesche</h1>
+			<table style="text-align: center;">
+				<td><button id="buttoninfC1">Inferno I</button></td>
+				<td><button id="buttoninfC2">Inferno II</button></td>
+				<td><button id="buttoninfC4">Inferno IV</button></td>
+				<td><button id="buttoninfC5">Inferno V</button></td>
+				<td><button id="buttoninfC10">Inferno X</button></td>
+				<td><button id="buttoninfC15">Inferno XV</button></td>
+				<td><button id="buttoninfC28">Inferno XXVIII</button></td>
+				<tr></tr>
+				<td><button id="buttonpurgC1">Purgatorio I</button></td>
+				<td><button id="buttonpurgC2">Purgatorio II</button></td>
+				<td><button id="buttonpurgC6">Purgatorio VI</button></td>
+				<td><button id="buttonpurgC10">Purgatorio X</button></td>
+				<td><button id="buttonpurgC11">Purgatorio XI</button></td>
+				<td><button id="buttonpurgC24">Purgatorio XXIV</button></td>
+				<td><button id="buttonpurgC26">Purgatorio XXVI</button></td>
+			</table>
+		</div>
+
+		<hr/>
+
+		<fieldset class="divParente">
+			<div id="zonaDinamicaPre" class="divFiglio2 terzinePS">Terzina precedente</div>
+			<div id="zonaDinamicaNow" class="divFiglio">Qui uscirà la tua terzina</div>
+			<div id="zonaDinamicaPost" class="divFiglio2 terzinePS">Terzina successiva</div>
+		</fieldset>
+
+		<script type="text/javascript" src="./cantiDante/infC1.js"></script>
+		<script type="text/javascript" src="./cantiDante/infC2.js"></script>
+		<script type="text/javascript" src="./cantiDante/infC4.js"></script>
+		<script type="text/javascript" src="./cantiDante/infC5.js"></script>
+		<script type="text/javascript" src="./cantiDante/infC10.js"></script>
+		<script type="text/javascript" src="./cantiDante/infC15.js"></script>
+		<script type="text/javascript" src="./cantiDante/infC28.js"></script>
+		
+		<script type="text/javascript" src="./cantiDante/purgC1.js"></script>
+		<script type="text/javascript" src="./cantiDante/purgC2.js"></script>
+		<script type="text/javascript" src="./cantiDante/purgC6.js"></script>
+		<script type="text/javascript" src="./cantiDante/purgC10.js"></script>
+		<script type="text/javascript" src="./cantiDante/purgC11.js"></script>
+		<script type="text/javascript" src="./cantiDante/purgC24.js"></script>
+		<script type="text/javascript" src="./cantiDante/purgC26.js"></script>
+
+		<!--
+			Sito a cura di LM-2021
+		-->
+
+	</body>
+</html>
