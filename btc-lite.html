@@ -23,27 +23,42 @@
 			}
 		</style>
 	</head>
-	<body>
+	<body onload="ordineFunzioni();">
 		<table>
 				<td><div style="text-align: center;">1₿ vale</div></td>
 				<tr></tr>
-				<td><div id="idProva" style="text-align: center;">Caricamento...</div></td>
+				<td><div id="valoreCoin" style="text-align: center;">Caricamento...</div></td>
 		</table>		
 		<script>
-			var xhr = new XMLHttpRequest();
-			xhr.open('GET', 'https://api.coinbase.com/v2/prices/sell?currency=EUR', true);
-			xhr.onload = function () {
-				if (xhr.readyState === xhr.DONE) {
-					if (xhr.status === 200) {
-						var datiResponse=xhr.responseText;
-						console.log("Dati richiesti: "+datiResponse);
-						var datiResponseJSON = JSON.parse(datiResponse);
-						var drj = datiResponseJSON["data"]["amount"]
-						document.getElementById("idProva").innerHTML = drj+"€";
+			let intervallo;
+
+			function ripetiFunzione() {
+				intervallo = setInterval(richiestaValore, 60000);
+			}
+
+			function richiestaValore(){
+				var xhr = new XMLHttpRequest();
+				xhr.open('GET', 'https://api.coinbase.com/v2/prices/sell?currency=EUR', true);
+				xhr.onload = function () {
+					if (xhr.readyState === xhr.DONE) {
+						if (xhr.status === 200) {
+							var datiResponse=xhr.responseText;
+							var orario = new Date();
+							console.log(orario.getHours()+":"+orario.getMinutes());
+							console.log("Dati richiesti: "+datiResponse);
+							var datiResponseJSON = JSON.parse(datiResponse);
+							var drj = datiResponseJSON["data"]["amount"];
+							document.getElementById("idProva").innerHTML = drj+"€";
+						}
 					}
-				}
-			};
-			xhr.send(null);
+				};
+				xhr.send(null);
+			}
+
+			function ordineFunzioni(){
+				var prova=richiestaValore();
+				var tempo=ripetiFunzione();
+			}
 		</script>
 	</body>
 </html>
