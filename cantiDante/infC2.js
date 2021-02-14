@@ -64,5 +64,6 @@ $(document).ready(function(){
 			randnopost="..."
 		}
 		$('#zonaDinamicaPost').text(randnopost);
+		console.log("Inferno 2");
 	});
 });

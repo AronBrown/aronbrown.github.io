@@ -67,6 +67,7 @@ if (typeof(randnopre)=="undefined") {
 			randnopost="..."
 		}
 		$('#zonaDinamicaPost').text(randnopost);
+		console.log("Purgatorio 6");
 	});
 });
 
