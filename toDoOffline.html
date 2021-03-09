@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>ToDo</title>
+  <link rel="icon" href="./icone/checked.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="./css/stileToDo.css">
+</head>
+
+<body onload="inizializzaStorageUtenti()">
+<div id="myDIV" class="header">
+  <h2>Cose da fare</h2>
+  <span onclick="newElement()" id="addBtn" class="addBtn">+</span>
+  <input type="text" id="myInput" placeholder="Aggiungi qualcosa">
+  <span onclick="resetStorageUtenti()" id="rmvBtn" class="rmvBtn">C</span>
+</div>
+
+<ul id="myUL">
+</ul>
+
+<script>
+
+  // Add a "checked" symbol when clicking on a list item
+  var list = document.querySelector('ul');
+  list.addEventListener('click', function(ev) {
+    if (ev.target.tagName === 'LI') {
+      ev.target.classList.toggle('checked');
+    }
+  }, false);
+  
+  var inputTask = document.getElementById("myInput");
+  inputTask.addEventListener("keyup", function(event) {
+    if (event.keyCode === 13) {
+     event.preventDefault();
+     document.getElementById("addBtn").click();
+    }
+  });
+
+  // Create a new list item when clicking on the "Add" button
+  function newElement() {
+    var li = document.createElement("li");
+    var oldItems = JSON.parse(localStorage.getItem('task'))||[];
+    var newItem = document.getElementById("myInput").value;
+    var t = document.createTextNode(newItem);
+    if (newItem === '') {
+      alert("Non hai scritto nulla");
+      return false;
+    }
+    oldItems.push(newItem);
+    localStorage.setItem('task', JSON.stringify(oldItems));
+    li.appendChild(t);
+    if (newItem === '') {
+      alert("Non hai scritto nulla");
+    } else {
+      document.getElementById("myUL").appendChild(li);
+    }
+    document.getElementById("myInput").value = "";
+  }
+
+  function inizializzaStorageUtenti(){
+    if (typeof(localStorage)=="undefined") {
+      localStorage.task="[]" ;
+    }
+    var ls=JSON.parse(localStorage.task);
+    var lsL=ls.length;
+    for (i = 0; i<lsL; i+1) {
+      var li = document.createElement("li");
+      var passata=JSON.stringify(ls[i]).replace(/\"/g, "");
+      console.log(passata)
+      var t = document.createTextNode(passata);
+      li.appendChild(t);
+      document.getElementById("myUL").appendChild(li);
+      var span = document.createElement("SPAN");
+      var txt = document.createTextNode("\u00D7");
+      span.className = "close";
+      span.appendChild(txt);
+      li.appendChild(span);
+
+      var close = document.getElementsByClassName("close");
+      var i;
+      for (i = 0; i < close.length; i++) {
+        close[i].onclick = function() {
+          var contenuto = this.parentElement;
+          contenuto.style.display = "none";
+          var taskAttuale = contenuto.textContent.replace("×", "");
+          console.log(taskAttuale);
+        }
+      }
+    }
+  }
+
+  function resetStorageUtenti(){
+    localStorage.clear() ;
+    localStorage.task="[]";
+    window.location.reload();
+  }
+</script>
+
+</body>
+<!--
+  Il codice è mezzo preso in prestito dagli esempi su w3schools,
+  il resto è magia del mio cuore.
+-->
+
+</html>
