@@ -1,5 +1,6 @@
 html{
   background: #ECEFF4;
+  user-select: none;
 }
 
 body {
