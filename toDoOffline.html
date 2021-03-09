@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html manifest="toDo.caching">
 <head>
   <title>ToDo</title>
   <link rel="icon" href="./icone/checked.png">
@@ -76,6 +76,7 @@
       span.appendChild(txt);
       li.appendChild(span);
 
+      // Click on a close button to hide the current list item
       var close = document.getElementsByClassName("close");
       var i;
       for (i = 0; i < close.length; i++) {
@@ -101,5 +102,4 @@
   Il codice è mezzo preso in prestito dagli esempi su w3schools,
   il resto è magia del mio cuore.
 -->
-
 </html>
