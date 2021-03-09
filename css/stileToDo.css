@@ -76,6 +76,18 @@ ul li.checked::before {
   color: white;
 }
 
+.nuovo {
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 12px 16px 12px 16px;
+}
+
+.nuovo:hover {
+  background-color: #2bc335  ;
+  color: white;
+}
+
 /* Style the header */
 .header {
   background-color: #393939;
