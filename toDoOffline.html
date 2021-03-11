@@ -52,7 +52,9 @@
       document.getElementById("myInput").value = "";
       return false;
     }
-
+    if (newItem.includes("\"")){
+      newItem=newItem.replace(/\"/g, "''");
+    }
     if (newItem === '') {
       alert("Non hai scritto nulla");
       return false;
@@ -82,7 +84,7 @@
     for (i = 0; i<lsL; i+1) {
       var li = document.createElement("li");
       var passata=JSON.stringify(ls[i]).replace(/\"/g, "");
-      console.log(passata)
+      console.log(passata);
       var t = document.createTextNode(passata);
       li.appendChild(t);
       document.getElementById("myUL").appendChild(li);
@@ -100,11 +102,8 @@
           var contenuto = this.parentElement;
           contenuto.style.display = "none";
           var taskAttuale = contenuto.textContent.replace("×", "");
-          //console.log("task attuale: "+taskAttuale);
           var taskRimozione = JSON.stringify(localStorage.task);
-          //console.log("task rimozione: "+taskRimozione);
           var taskDaRimuovere = "\\\""+taskAttuale+"\\\"";
-          //console.log("task da rimuovere"+taskDaRimuovere);
 
           taskRimozione=taskRimozione.replace(taskDaRimuovere, "");
           taskRimozione=taskRimozione.replace("\,\]", "\]");
@@ -113,8 +112,7 @@
           taskRimozione=taskRimozione.replace("\\\"\\\"", "");
           taskRimozione=taskRimozione.replace("\\\"\\\"\,", "");
           taskRimozione=taskRimozione.replace("\,\\\"\\\"", "");
-          //console.log(taskRimozione);
-
+          
           localStorage.setItem('task', JSON.parse(taskRimozione));
         }
       }
@@ -132,5 +130,7 @@
 <!--
   Il codice è mezzo preso in prestito dagli esempi su w3schools,
   il resto è magia del mio cuore.
+
+  Le icone sono di https://icons8.it/
 -->
 </html>
