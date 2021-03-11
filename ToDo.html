@@ -76,7 +76,7 @@
   }
 
   function inizializzaStorageUtenti(){
-    if (typeof(localStorage)=="undefined") {
+    if (typeof(localStorage.task)=="undefined") {
       localStorage.task="[]" ;
     }
     var ls=JSON.parse(localStorage.task);
