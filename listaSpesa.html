@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Spesa</title>
+  <link rel="icon" href="./icone/checked.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="./css/stileToDoSpesa.css">
+</head>
+
+<body onload="inizializzaStorageUtenti()">
+<div id="myDIV" class="header">
+  <span onclick="newElement()" id="addBtn" class="addBtn">+</span>
+  <input type="text" id="myInput" placeholder="Aggiungi un'attività">
+  <span onclick="resetStorageUtenti()" id="rmvBtn" class="rmvBtn">C</span>
+</div>
+
+<ul id="myUL">
+</ul>
+<div class="bordo"></div>
+
+<script>
+  // Aggiunge la spunta quando premi su un spesa
+  var list = document.querySelector('ul');
+  list.addEventListener('click', function(ev) {
+    if (ev.target.tagName === 'LI') {
+      ev.target.classList.toggle('checked');
+    }
+  }, false);
+  
+  // Aggiunge un spesa quando premi invio sulla barra di input
+  var inputSpesa = document.getElementById("myInput");
+  inputSpesa.addEventListener("keyup", function(event) {
+    if (event.keyCode === 13) {
+     event.preventDefault();
+     document.getElementById("addBtn").click();
+    }
+  });
+
+  // Create a new list item when clicking on the "Add" button
+  function newElement() {
+    var li = document.createElement("li");
+    var oldItems = JSON.parse(localStorage.getItem('spesa'))||[];
+    var newItem = document.getElementById("myInput").value;
+    var t = document.createTextNode(newItem);
+    //console.log(newItem);
+
+    var controlloOggetto = "\\\""+newItem+"\\\"";
+    var storageAttuale = JSON.stringify(localStorage.spesa);
+
+    if (storageAttuale.includes(controlloOggetto)){
+      alert("Prodotto già presente");
+      document.getElementById("myInput").value = "";
+      return false;
+    }
+    if (newItem.includes("\"")){
+      newItem=newItem.replace(/\"/g, "''");
+    }
+    if (newItem === '') {
+      alert("Non hai scritto nulla");
+      return false;
+    }
+    oldItems.push(newItem);
+    localStorage.setItem('spesa', JSON.stringify(oldItems));
+    li.appendChild(t);
+    if (newItem === '') {
+      alert("Non hai scritto nulla");
+    } else {
+      document.getElementById("myUL").appendChild(li);
+      var span = document.createElement("SPAN");
+      var txt = document.createTextNode("Nuovo!");
+      span.className = "nuovo";
+      span.appendChild(txt);
+      li.appendChild(span)
+    }
+    document.getElementById("myInput").value = "";
+  }
+
+  function inizializzaStorageUtenti(){
+    if (typeof(localStorage.spesa)=="undefined") {
+      localStorage.spesa="[]" ;
+    }
+    var ls=JSON.parse(localStorage.spesa);
+    var lsL=ls.length;
+    for (i = 0; i<lsL; i+1) {
+      var li = document.createElement("li");
+      var passata=JSON.stringify(ls[i]).replace(/\"/g, "");
+      console.log(passata)
+      var t = document.createTextNode(passata);
+      li.appendChild(t);
+      document.getElementById("myUL").appendChild(li);
+      var span = document.createElement("SPAN");
+      var txt = document.createElement("IMG");
+      txt.setAttribute("src", "icons8-shopping-cart-48.png");
+      txt.setAttribute("style", "height: 45px;")
+      span.className = "close";
+      span.appendChild(txt);
+      li.appendChild(span);
+
+      // Click on a close button to hide the current list item
+      var close = document.getElementsByClassName("close");
+      var i;
+      for (i = 0; i < close.length; i++) {
+        close[i].onclick = function() {
+          var contenuto = this.parentElement;
+          contenuto.style.display = "none";
+          var spesaAttuale = contenuto.textContent.replace("×", "");
+          //console.log("spesa attuale: "+spesaAttuale);
+          var spesaRimozione = JSON.stringify(localStorage.spesa);
+          //console.log("spesa rimozione: "+spesaRimozione);
+          var spesaDaRimuovere = "\\\""+spesaAttuale+"\\\"";
+          //console.log("spesa da rimuovere"+spesaDaRimuovere);
+
+          spesaRimozione=spesaRimozione.replace(spesaDaRimuovere, "");
+          spesaRimozione=spesaRimozione.replace("\,\]", "\]");
+          spesaRimozione=spesaRimozione.replace("\[\,", "\[");
+          spesaRimozione=spesaRimozione.replace("\,\,", "\,");
+          spesaRimozione=spesaRimozione.replace("\\\"\\\"", "");
+          spesaRimozione=spesaRimozione.replace("\\\"\\\"\,", "");
+          spesaRimozione=spesaRimozione.replace("\,\\\"\\\"", "");
+          //console.log(spesaRimozione);
+
+          localStorage.setItem('spesa', JSON.parse(spesaRimozione));
+        }
+      }
+    }
+  }
+
+  function resetStorageUtenti(){
+    localStorage.clear() ;
+    localStorage.spesa="[]";
+    window.location.reload();
+  }
+</script>
+
+</body>
+<!--
+  Il codice è mezzo preso in prestito dagli esempi su w3schools,
+  il resto è magia del mio cuore.
+  Le icone sono prese da icons8.it
+-->
+</html>
