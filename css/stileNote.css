@@ -157,7 +157,7 @@ input:focus::placeholder {
 
 .varioBtn {
   border-radius: 10px;
-  margin: 10px;
+  margin: 8px 2px;
 }
 
 .form-cancella {
