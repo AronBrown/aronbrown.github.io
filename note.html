@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>ToDo</title>
+  <title>Note</title>
   <link rel="icon" href="./icone/checked.png">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" type="text/css" href="./css/stileNote.css">
@@ -19,16 +19,14 @@
 
 <ul id="myUL"></ul>
 
-<div class="form-cancella" id="prova1">
-  <table style="margin-left: auto; margin-right: auto;">
-    <td onclick="resetStorageUtenti()" id="rmvBtn" class="varioBtn baseBtn">Reset</td>
-    <td onclick="editModeOn()" class="varioBtn baseBtn">Edit On</td>
-    <td onclick="editModeOff()" class="varioBtn baseBtn">Edit Off</td>
-    <td onclick="closeForm()" class="varioBtn baseBtn">Chiudi menù</td>
-  </table>
+<div class="form-cancella nascosto" id="menuNascosto">
+  <button onclick="alertResetStorage()" id="rmvBtn" class="varioBtn baseBtn btnL">Reset</button>
+  <button onclick="editMode()" class="varioBtn baseBtn btnR">Edit</button>
 </div>
 
-<script>  
+<div class="bordo"></div>
+
+<script>
   var dOg = new Date();
   var dataGiorno = dOg.getDate();
   var dataMese = dOg.getMonth()+1;
@@ -79,21 +77,12 @@
     document.getElementById("myInput").value = "";
   }
 
-  function editModeOff() {
+  function editMode() {
     var elems = document.getElementsByClassName('close');
-    var elems2 = document.getElementsByClassName('AO');
+    var elems2 = document.getElementsByClassName('classePdng');
     for (var i=0;i<elems.length;i+=1){
-      elems[i].style.display = 'none';
-      elems2[i].style.paddingLeft = '8px';
-    }
-  }
-
-  function editModeOn() {
-    var elems = document.getElementsByClassName('close');
-    var elems2 = document.getElementsByClassName('AO');
-    for (var i=0;i<elems.length;i+=1){
-      elems[i].style.display = 'block';
-      elems2[i].style.paddingLeft = '50px';
+      elems[i].classList.toggle("nascosto");
+      elems2[i].classList.toggle("classePadding");
     }
   }
 
@@ -109,11 +98,11 @@
       console.log(passata);
       var t = document.createTextNode(passata);
       li.appendChild(t);
-      li.className="AO";
+      li.className="classePdng";
       document.getElementById("myUL").appendChild(li);
       var span = document.createElement("SPAN");
       var txt = document.createTextNode("\u00D7");
-      span.className = "close";
+      span.className = "close nascosto";
       span.appendChild(txt);
       li.appendChild(span);
 
@@ -147,12 +136,16 @@
     window.location.reload();
   }
 
-  function openForm() {
-    document.getElementById("prova1").style.display = "block";
+  function alertResetStorage(){
+    var r = confirm("Premi ok per resettare la lista");
+    if (r == true) {
+      resetStorageUtenti();
+    }
   }
 
-  function closeForm() {
-    document.getElementById("prova1").style.display = "none";
+  function openForm() {
+    var element = document.getElementById("menuNascosto");
+    element.classList.toggle("nascosto");
   }
 </script>
 
