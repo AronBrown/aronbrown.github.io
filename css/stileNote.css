@@ -27,11 +27,16 @@ ul li {
   position: relative;
   padding: 12px 8px 12px 10px;
   list-style-type: none;
-  background: #E5E9F0;
+  background: #E3E7EF;
   font-size: 18px;
   transition: 0.2s;
   overflow: auto;
   
+  /*
+  border-bottom: 2px solid;
+  border-bottom-color: #303443;
+  */
+
   /* make the list items unselectable */
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -39,6 +44,7 @@ ul li {
   user-select: none;
 
   word-wrap: break-word;
+  white-space: pre-line;
 }
 
 /* Set all odd list items to a different color (zebra-stripes) */
@@ -90,6 +96,11 @@ ul li:hover {
 .bordo{
   border-top: 3px solid;
   border-top-color: #303443;
+}
+
+hr {
+  border: 0;
+  margin: 5px 0px 5px 0px;
 }
 
 input {
