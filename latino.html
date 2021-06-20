@@ -1,0 +1,200 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Ripasso latino</title>
+		<link rel="icon" href="./icone/dntIco.png">
+		<meta charset="utf-8">
+		<meta content="width=device-width, initial-scale=1" name="viewport">
+		<style type="text/css">
+
+			html {
+				font-family: "Arial";
+			}
+
+			body {
+				background: #003b6f;
+				color: rgba(255, 255, 255, 0.9);
+			}
+
+			.sidenav {
+				height: 50%;
+				width: 157px;
+				position: fixed;
+				z-index: 1;
+				top: 0;
+				left: 0;
+				background-color: #00203C;
+				overflow-x: hidden;
+				padding: 20px 0 20px 0;
+			}
+
+			.sidenavBG {
+				height: 100%;
+				width: 157px;
+				position: fixed;
+				z-index: 1;
+				top: 0;
+				left: 0;
+				background-color: #00203C;
+				padding: 20px 0 20px 0;
+				border-right: 3px solid #6f8ea9;
+			}
+			
+			.main {
+				margin-left: 160px; /* Same as the width of the sidenav */
+				font-size: 28px; /* Increased text to enable scrolling */
+				padding: 0px 10px;
+			}
+
+			.terzinePS {
+				color: rgba(255, 255, 255, 0.5);
+				transition-duration: 0.4s;
+			}
+
+			.terzinePS:hover {
+				color: rgba(255, 255, 255, 0.9);
+			}
+
+			.divParente {
+				display: grid;
+				place-items: center;
+				flex-wrap: wrap;
+			}
+
+			.divFiglio {
+				flex: 1 1 300px;
+				padding: 1px;
+				margin: 1px;
+				border: 2px white;
+				background: transparent;
+				font-size: 1.5ch;
+				text-align: center;
+				overflow-wrap: break-word;
+			}
+
+
+			.range {
+				width: 50px;
+				outline: 0;
+				color: aliceblue;
+				background-color: inherit;
+				border: 0;
+				border-bottom: 2px solid;
+				text-align: center;
+			}
+
+			fieldset {
+				border: 2px solid;
+				max-height: 85vh;
+			}
+
+			button {
+				width: 80%;
+				font-size: 2.5ch;
+				background: transparent;
+				color: rgba(255, 255, 255, 0.9);
+				border: solid 2px;
+				border-color: transparent;
+				transition-duration: 0.4s;
+				outline: 0;
+				text-align: center;
+				margin-bottom: 5px;
+			}
+
+			button:hover {
+				background: transparent;
+				border: solid 2px;
+			}
+
+			hr {
+				border: 1px solid white;
+				margin-bottom: 10px;
+			}
+
+			input::-webkit-outer-spin-button,
+			input::-webkit-inner-spin-button {
+				-webkit-appearance: none;
+				margin: 0;
+			}
+			
+			/* Firefox */
+			input[type=number] {
+				-moz-appearance: textfield;
+			}
+
+			.barraRicerca {
+				font-size: 3ch;
+				text-align: center;
+				color: aliceblue;
+				background-color: inherit;
+				border: 0;
+				border-bottom: solid 2px;
+				outline: 0;
+			}
+
+			::placeholder{
+				color:rgba(255, 255, 255, 0.9);
+			}
+
+			input:focus::placeholder {
+				color: transparent;
+			}
+
+		</style>
+		<script type="text/javascript" src="./librerie/jquery-3.5.1.min.js"></script>
+	</head>
+
+	<body>
+		<div class="sidenavBG"></div>
+		<div class="divParente">
+			<table style="text-align: center;" class="sidenav">
+				<td>
+					<button id="buttonEneide">Eneide VI</button>
+					<br/>
+					Tra <input type="number" class="range" id="idEneide0" value="1">
+					<br/>
+					e <input type="number" class="range" id="idEneide1" value="901">
+				</td>
+				<tr></tr>
+				<td>
+					<button id="buttonRerum">De rerum natura</button>
+					<br/>
+					Tra <input type="number" class="range" id="idRerum0" value="1">
+					<br/>
+					e <input type="number" class="range" id="idRerum1" value="1110">
+				</td>
+				<tr></tr>
+				<td>
+					<button id="buttonGermania">Germania</button>
+					<br/>
+					Tra <input type="number" class="range" id="idGermania0" value="1">
+					<br/>
+					e <input type="number" class="range" id="idGermania1" value="46">
+				</td>
+				<tr></tr>
+			</table>
+		</div>
+
+		<div class="main">
+			<form action="https://www.dizionario-latino.com/dizionario-latino-italiano.php" method="get" autocomplete="off" class="divParente" target="_blank">
+				<input type="text" name="parola" placeholder="Ricerca Olivetti" spellcheck="false" class="barraRicerca">
+			</form>
+
+			<hr/>
+
+			<fieldset class="divParente">
+				<div id="zonaDinamicaVerso" class="divFiglio">Numero del verso...</div>
+				<div id="zonaDinamicaNow" class="divFiglio">Testo in uscita...</div>
+			</fieldset>
+		</div>
+		
+		<script type="text/javascript" src="./testiLatino/eneide.js"></script>
+		<script type="text/javascript" src="./testiLatino/deRerumNatura.js"></script>
+		<script type="text/javascript" src="./testiLatino/germania.js"></script>
+
+		<!--
+			Sito a cura di LM-2021
+		-->
+
+	</body>
+</html>
