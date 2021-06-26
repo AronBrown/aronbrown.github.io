@@ -912,7 +912,7 @@ $(document).ready(function(){
 
 		rangeEneide=parseInt(valoreFinale, 10)-parseInt(valoreIniziale, 10)+1;
 
-		numero=Math.ceil(Math.random()*rangeEneide);
+		numero=parseInt(valoreIniziale, 10)-1+Math.ceil(Math.random()*rangeEneide);
 
 		console.log("Range: "+rangeEneide);
 

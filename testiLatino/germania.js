@@ -59,7 +59,7 @@ $(document).ready(function(){
 
 		console.log("Range: "+rangeGermania);
 
-		numero=Math.ceil(Math.random()*rangeGermania);
+		numero=parseInt(valoreIniziale, 10)-1+Math.ceil(Math.random()*rangeGermania);
 
 		console.log(numero);
 

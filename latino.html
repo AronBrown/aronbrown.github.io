@@ -72,7 +72,6 @@
 				overflow-wrap: break-word;
 			}
 
-
 			.range {
 				width: 50px;
 				outline: 0;
@@ -81,6 +80,10 @@
 				border: 0;
 				border-bottom: 2px solid;
 				text-align: center;
+			}
+
+			.spaziotto {
+				padding-bottom: 5px;
 			}
 
 			fieldset {
@@ -139,7 +142,6 @@
 			input:focus::placeholder {
 				color: transparent;
 			}
-
 		</style>
 		<script type="text/javascript" src="./librerie/jquery-3.5.1.min.js"></script>
 	</head>
@@ -157,7 +159,7 @@
 				</td>
 				<tr></tr>
 				<td>
-					<button id="buttonRerum">De rerum natura</button>
+					<button id="buttonRerum">De rerum natura I</button>
 					<br/>
 					Tra <input type="number" class="range" id="idRerum0" value="1">
 					<br/>
@@ -165,7 +167,7 @@
 				</td>
 				<tr></tr>
 				<td>
-					<button id="buttonGermania">Germania</button>
+					<button id="buttonGermania">Germania</button>			
 					<br/>
 					Tra <input type="number" class="range" id="idGermania0" value="1">
 					<br/>
@@ -186,6 +188,7 @@
 				<div id="zonaDinamicaVerso" class="divFiglio">Numero del verso...</div>
 				<div id="zonaDinamicaNow" class="divFiglio">Testo in uscita...</div>
 			</fieldset>
+
 		</div>
 		
 		<script type="text/javascript" src="./testiLatino/eneide.js"></script>
